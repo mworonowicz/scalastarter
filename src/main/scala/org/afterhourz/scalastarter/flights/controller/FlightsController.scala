@@ -2,10 +2,12 @@ package org.afterhourz.scalastarter.flights.controller
 
 import akka.http.scaladsl.model.StatusCodes
 import akka.http.scaladsl.server.Route
+import de.heikoseeberger.akkahttpcirce.FailFastCirceSupport._
+import io.circe.generic.auto._
+import io.circe.java8.time._
 import org.afterhourz.scalastarter.core.Controller
 import org.afterhourz.scalastarter.core.Stack._
 import org.afterhourz.scalastarter.flights.FlightsContext
-import org.afterhourz.scalastarter.flights.model.FlightsJson._
 import org.afterhourz.scalastarter.flights.model.{FlightSearchResult, OfferSearch}
 import org.afterhourz.scalastarter.flights.service.OfferService
 import org.afterhourz.scalastarter.utils.LocalDateJson._
@@ -17,6 +19,10 @@ trait FlightsController extends Controller {
 
   def route: Route =
     path("flights") {
+//      post {
+//      json =>
+//          json.request.entity.
+//      }
       get {
         parameters('departure.as[String],
                    'arrival.as[String],

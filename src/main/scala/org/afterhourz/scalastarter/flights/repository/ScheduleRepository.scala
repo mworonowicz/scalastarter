@@ -1,6 +1,6 @@
 package org.afterhourz.scalastarter.flights.repository
 
-import java.time.{LocalDate, LocalDateTime}
+import java.time.LocalDate
 
 import monix.eval.Task
 import org.afterhourz.scalastarter.flights.model.{Connection, Schedule}
